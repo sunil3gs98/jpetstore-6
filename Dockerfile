@@ -20,7 +20,7 @@ EXPOSE 8080
  
 ENV APP_HOME /usr/src/app
 
-COPY target/6.1.1-SNAPSHOT.war  $APP_HOME/app.war
+COPY target/jpetstore.war  $APP_HOME/app.war
 
 WORKDIR $APP_HOME
 
