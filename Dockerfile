@@ -15,13 +15,7 @@
 #
 
 FROM openjdk:21
-
-EXPOSE 8080
- 
-ENV APP_HOME /usr/src/app
-
-COPY target/jpetstore.war  $APP_HOME/app.war
-
-WORKDIR $APP_HOME
-
-CMD ["java","-jar","app.war"] 
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+RUN ./mvnw clean package
+CMD ./mvnw cargo:run -P tomcat90
