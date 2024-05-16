@@ -24,4 +24,4 @@ COPY target/jpetstore.war  $APP_HOME/app.war
 
 WORKDIR $APP_HOME
 
-ENTRYPOINT ["java","-jar","app.war"] 
+CMD ["java","-jar","app.war"] 
