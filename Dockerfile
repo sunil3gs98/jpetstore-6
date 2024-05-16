@@ -15,7 +15,13 @@
 #
 
 FROM openjdk:21
-COPY . /usr/src/myapp
-WORKDIR /usr/src/myapp
-RUN ./mvnw clean package
-CMD ./mvnw cargo:run -P tomcat90
+
+EXPOSE 8080
+ 
+ENV APP_HOME /usr/src/app
+
+COPY target/6.1.1-SNAPSHOT.war  $APP_HOME/app.war
+
+WORKDIR $APP_HOME
+
+ENTRYPOINT ["java","-jar","app.war"] 
